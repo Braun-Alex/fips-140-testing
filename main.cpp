@@ -3,5 +3,5 @@
 
 int main() {
     auto randomValues = generateRandom();
-    std::cout << testMonoBit(randomValues);
+    std::cout << testLongRuns(randomValues);
 }
