@@ -1,6 +1,7 @@
+#include "functions.h"
 #include <iostream>
 
 int main() {
-    std::cout << "AAA";
-    return 0;
+    auto randomValues = generateRandom();
+    std::cout << testMonoBit(randomValues);
 }
