@@ -3,5 +3,5 @@
 
 int main() {
     auto randomValues = generateRandom();
-    std::cout << testPoker(randomValues);
+    std::cout << testRuns(randomValues);
 }
