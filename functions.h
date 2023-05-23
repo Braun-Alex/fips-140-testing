@@ -1,6 +1,8 @@
 #pragma once
 #include <array>
 #include <random>
+
+//FIPS-140-3 constants
 const unsigned int MonoBitMinLimit = 9654,
                    MonoBitMaxLimit = 10346,
                    maxLongRunSize = 36;
@@ -15,8 +17,10 @@ const std::array<std::pair<int, int>, 6> runsLimits = {
         std::make_pair(90, 223)
 };
 
+// Generating of random sequence
 std::array<bool, 20000> generateRandom();
 
+// FIPS-140-3 tests
 bool testMonoBit(std::array<bool, 20000> sequence);
 
 bool testLongRuns(std::array<bool, 20000> sequence);
