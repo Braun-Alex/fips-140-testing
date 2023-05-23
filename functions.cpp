@@ -33,3 +33,25 @@ bool testLongRuns(std::array<bool, 20000> sequence) {
     }
     return falseLongRun <= 36 && trueLongRun <= 36;
 }
+
+bool testPoker(std::array<bool, 20000> sequence) {
+    int index, buffer;
+    std::array<int, 16> blocks {};
+    for (int i = 0; i < 20000; i += 4) {
+        index = 0;
+        buffer = 1;
+        for (int j = 0; j < 4; j++) {
+            index += sequence[i + j] * buffer;
+            buffer *= 2;
+        }
+        ++blocks[index];
+    }
+    double X = 0;
+    for (int i = 0; i < 16; i++) {
+        X += blocks[i] * blocks[i];
+    }
+    X *= 16;
+    X /= 5000;
+    X -= 5000;
+    return X > pokerParameterMinLimit && X < pokerParameterMaxLimit;
+}
