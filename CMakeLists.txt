@@ -1,7 +1,12 @@
 cmake_minimum_required(VERSION 3.20)
-project(testing_of_random_generators)
+project(Testing_Of_Random_Generators)
 
 set(CMAKE_CXX_STANDARD 23)
-set(SOURCES main.cpp functions.h functions.cpp)
+set(HEADERS functions.h tests.h)
+set(SOURCES main.cpp functions.cpp tests.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+add_subdirectory(testing/googletest)
+
+add_executable(${PROJECT_NAME} ${HEADERS} ${SOURCES})
+
+target_link_libraries(${PROJECT_NAME} gtest_main gtest)

@@ -1,7 +1,6 @@
-#include "functions.h"
-#include <iostream>
+#include <gtest/gtest.h>
 
 int main() {
-    auto randomValues = generateRandom();
-    std::cout << testRuns(randomValues);
+    testing::InitGoogleTest();
+    return RUN_ALL_TESTS();
 }
